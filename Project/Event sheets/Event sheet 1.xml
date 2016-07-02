@@ -2,5 +2,199 @@
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
-    <events />
+    <events>
+        <variable constant="0" name="canLeave" sid="2378709242457119" static="0" type="number">0</variable>
+        <variable constant="0" name="damage" sid="2240535815929619" static="0" type="number">3</variable>
+        <variable constant="0" name="tearrate" sid="2612304178196662" static="0" type="number">0.5</variable>
+        <comment>Shoot 10 times a second while holding the left mouse button down.  Adjust the bullet angle by a random amount (-4 to +4 degrees) to add some inaccuracy to the firing.</comment>
+        <event-block sid="6103239325056706">
+            <conditions>
+                <condition id="2" name="Key is down" sid="6575170522143772" type="Keyboard">
+                    <param id="0" name="Key">73 (I)</param>
+                </condition>
+                <condition id="-6" name="Every X seconds" sid="2106707168089717" type="System">
+                    <param id="0" name="Interval (seconds)">tearrate</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="3026785451383574" type="System">
+                    <param id="0" name="Object to create">Bullet</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">Player.X</param>
+                    <param id="3" name="Y">Player.Y</param>
+                </action>
+                <action id="-18" name="Rotate clockwise" sid="5081736416239843" type="Bullet">
+                    <param id="0" name="Degrees">random(-2,2)</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="6704974109848906" type="Bullet">
+                    <param id="0" name="Angle">270</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4878532828354596">
+            <conditions>
+                <condition id="2" name="Key is down" sid="1202105134234091" type="Keyboard">
+                    <param id="0" name="Key">74 (J)</param>
+                </condition>
+                <condition id="-6" name="Every X seconds" sid="9727032290378841" type="System">
+                    <param id="0" name="Interval (seconds)">tearrate</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="385794291248634" type="System">
+                    <param id="0" name="Object to create">Bullet</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">Player.X</param>
+                    <param id="3" name="Y">Player.Y</param>
+                </action>
+                <action id="-18" name="Rotate clockwise" sid="342684632178174" type="Bullet">
+                    <param id="0" name="Degrees">random(-2,2)</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="1509326887550476" type="Bullet">
+                    <param id="0" name="Angle">180</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7066781096183282">
+            <conditions>
+                <condition id="2" name="Key is down" sid="5276188821037828" type="Keyboard">
+                    <param id="0" name="Key">75 (K)</param>
+                </condition>
+                <condition id="-6" name="Every X seconds" sid="655937030000692" type="System">
+                    <param id="0" name="Interval (seconds)">tearrate</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="7309151991972334" type="System">
+                    <param id="0" name="Object to create">Bullet</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">Player.X</param>
+                    <param id="3" name="Y">Player.Y</param>
+                </action>
+                <action id="-18" name="Rotate clockwise" sid="6332993320563179" type="Bullet">
+                    <param id="0" name="Degrees">random(-2,2)</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="6231671478536176" type="Bullet">
+                    <param id="0" name="Angle">90</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1650609091982413">
+            <conditions>
+                <condition id="2" name="Key is down" sid="9200672586405828" type="Keyboard">
+                    <param id="0" name="Key">76 (L)</param>
+                </condition>
+                <condition id="-6" name="Every X seconds" sid="1810574473308363" type="System">
+                    <param id="0" name="Interval (seconds)">tearrate</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="2487179897566733" type="System">
+                    <param id="0" name="Object to create">Bullet</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">Player.X</param>
+                    <param id="3" name="Y">Player.Y</param>
+                </action>
+                <action id="-18" name="Rotate clockwise" sid="6287657992730907" type="Bullet">
+                    <param id="0" name="Degrees">random(-2,2)</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="8377486115167189" type="Bullet">
+                    <param id="0" name="Angle">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2027701288676284">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="9255652269552341" type="Bullet">
+                    <param id="0" name="Object">enemy</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Subtract from" sid="2724255281578346" type="enemy">
+                    <param id="0" name="Instance variable">hp</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="3217865222906505" type="Bullet" />
+            </actions>
+        </event-block>
+        <event-block sid="9741817847999001">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="7871098032548775" type="enemy">
+                    <param id="0" name="Instance variable">hp</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="439235946379113" type="enemy" />
+            </actions>
+        </event-block>
+        <comment>Allow WASD as alternate controls to the default arrow keys.</comment>
+        <event-block sid="3524604001178296">
+            <conditions>
+                <condition id="2" name="Key is down" sid="6039917619252547" type="Keyboard">
+                    <param id="0" name="Key">87 (W)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="9309079063280507" type="Player">
+                    <param id="0" name="Control">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6128292403327154">
+            <conditions>
+                <condition id="2" name="Key is down" sid="5221861664351315" type="Keyboard">
+                    <param id="0" name="Key">65 (A)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="5596766386674219" type="Player">
+                    <param id="0" name="Control">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="452523823378856">
+            <conditions>
+                <condition id="2" name="Key is down" sid="5801380131766188" type="Keyboard">
+                    <param id="0" name="Key">83 (S)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="1640407323761165" type="Player">
+                    <param id="0" name="Control">3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4759580008784657">
+            <conditions>
+                <condition id="2" name="Key is down" sid="4299523392453619" type="Keyboard">
+                    <param id="0" name="Key">68 (D)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="3304671876693359" type="Player">
+                    <param id="0" name="Control">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1130098643485079">
+            <conditions>
+                <condition behavior="LineOfSight" id="1" name="Has LOS to position" sid="8457527310926183" type="enemy">
+                    <param id="0" name="X">Player.X</param>
+                    <param id="1" name="Y">Player.Y</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="0" name="Find path" sid="3043297993399614" type="enemy">
+                    <param id="0" name="X">Player.X</param>
+                    <param id="1" name="Y">Player.Y</param>
+                </action>
+                <action behavior="Pathfinding" id="1" name="Move along path" sid="9333155443328791" type="enemy" />
+                <action behavior="Pathfinding" id="14" name="Set speed" sid="3249829410299615" type="enemy">
+                    <param id="0" name="Speed">200</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
 </c2eventsheet>

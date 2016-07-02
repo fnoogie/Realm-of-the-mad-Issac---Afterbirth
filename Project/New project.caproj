@@ -2,42 +2,359 @@
 <c2project>
     <name>New project</name>
     <description></description>
-    <version>1.0.0.0</version>
+    <version>1.0</version>
     <author></author>
     <author-email></author-email>
-    <author-website>http://</author-website>
-    <app-id>com.mycompany.myapp</app-id>
-    <unique-id>16e98fgkzdi43</unique-id>
+    <author-website></author-website>
+    <app-id></app-id>
+    <unique-id>3k8y8jenijj4j</unique-id>
     <saved-with-version>22700</saved-with-version>
-    <used-plugins />
-    <used-behaviors />
+    <used-plugins>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
+        <behavior author="Scirra" id="Pathfinding" version="1">Pathfinding</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+        <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
     <used-effects />
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>854</width>
+        <width>640</width>
         <height>480</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
-        <prop name="Clear background">Yes</prop>
-        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Clear background">No</prop>
         <prop name="Enable WebGL">On</prop>
         <prop name="Fullscreen in browser">Letterbox scale</prop>
-        <prop name="Fullscreen scaling">High quality</prop>
-        <prop name="Loader style">Construct 2 splash</prop>
-        <prop name="Orientations">Any</prop>
-        <prop name="Pause on unfocus">No</prop>
-        <prop name="Physics engine">Box2D asm.js</prop>
-        <prop name="Preload sounds">Yes</prop>
+        <prop name="Hide address bar">No</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
         <prop name="Preview browser">(default)</prop>
         <prop name="Sampling">Linear</prop>
-        <prop name="Use high-DPI display">Yes</prop>
+        <prop name="Use iOS retina display">Yes</prop>
     </configuration-settings>
-    <object-folder />
+    <object-folder>
+        <object-type name="Player" sid="6673513605435163">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="8Direction" sid="8803620342878694">
+                    <behavior id="EightDir" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3254461888822402" speed="5">
+                    <frame duration="1" hotspotX="0.515152" hotspotY="0.507937">
+                        <image-point name="ShootPoint" x="1.15152" y="0.507937" />
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.977273" y="0.5" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="TiledBackground" sid="6456885967293601">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="Mouse" sid="3156494730463163">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="Bullet" sid="3413557659843004">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="8014372092964004">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="8436986108080954">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8041568388506511" speed="5">
+                    <frame duration="1" hotspotX="0.545455" hotspotY="0.545455" original-source="F:\Textures\EnemyDeadParticles.png">
+                        <collision-poly>
+                            <point x="0.454545" y="0.0909091" />
+                            <point x="0.727273" y="0.272727" />
+                            <point x="0.909091" y="0.454545" />
+                            <point x="0.727273" y="0.727273" />
+                            <point x="0.454545" y="0.909091" />
+                            <point x="0.272727" y="0.727273" />
+                            <point x="0.0909091" y="0.454545" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Text" sid="4310829700651991">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Keyboard" sid="6159538319611411">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="enemy" sid="7149708771018103">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="hp" sid="8568028609140263" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="LineOfSight" sid="8190707127449362">
+                    <behavior id="LOS" />
+                </behavior-type>
+                <behavior-type name="BoundToLayout" sid="2457534736009378">
+                    <behavior id="bound" />
+                </behavior-type>
+                <behavior-type name="8Direction" sid="9268240208367237">
+                    <behavior id="EightDir" />
+                </behavior-type>
+                <behavior-type name="Pathfinding" sid="7429647374573784">
+                    <behavior id="Pathfinding" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="16" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4118140136870986" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\sprites&amp;such\Sprites\Space\Enemies\saucer_blades0000.png">
+                        <collision-poly>
+                            <point x="0.304688" y="0.304688" />
+                            <point x="0.5" y="0.226563" />
+                            <point x="0.695313" y="0.304688" />
+                            <point x="0.765625" y="0.5" />
+                            <point x="0.695313" y="0.695313" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.304688" y="0.695313" />
+                            <point x="0.226563" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\sprites&amp;such\Sprites\Space\Enemies\saucer_blades0001.png">
+                        <collision-poly>
+                            <point x="0.304688" y="0.304688" />
+                            <point x="0.5" y="0.226563" />
+                            <point x="0.695313" y="0.304688" />
+                            <point x="0.765625" y="0.5" />
+                            <point x="0.695313" y="0.695313" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.304688" y="0.695313" />
+                            <point x="0.226563" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\sprites&amp;such\Sprites\Space\Enemies\saucer_blades0002.png">
+                        <collision-poly>
+                            <point x="0.304688" y="0.304688" />
+                            <point x="0.5" y="0.226563" />
+                            <point x="0.695313" y="0.304688" />
+                            <point x="0.765625" y="0.5" />
+                            <point x="0.695313" y="0.695313" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.304688" y="0.695313" />
+                            <point x="0.226563" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\sprites&amp;such\Sprites\Space\Enemies\saucer_blades0003.png">
+                        <collision-poly>
+                            <point x="0.304688" y="0.304688" />
+                            <point x="0.5" y="0.226563" />
+                            <point x="0.695313" y="0.304688" />
+                            <point x="0.765625" y="0.5" />
+                            <point x="0.695313" y="0.695313" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.304688" y="0.695313" />
+                            <point x="0.226563" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\sprites&amp;such\Sprites\Space\Enemies\saucer_blades0004.png">
+                        <collision-poly>
+                            <point x="0.304688" y="0.304688" />
+                            <point x="0.5" y="0.226563" />
+                            <point x="0.695313" y="0.304688" />
+                            <point x="0.765625" y="0.5" />
+                            <point x="0.695313" y="0.695313" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.304688" y="0.695313" />
+                            <point x="0.226563" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\sprites&amp;such\Sprites\Space\Enemies\saucer_blades0005.png">
+                        <collision-poly>
+                            <point x="0.304688" y="0.304688" />
+                            <point x="0.5" y="0.226563" />
+                            <point x="0.695313" y="0.304688" />
+                            <point x="0.765625" y="0.5" />
+                            <point x="0.695313" y="0.695313" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.304688" y="0.695313" />
+                            <point x="0.226563" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\sprites&amp;such\Sprites\Space\Enemies\saucer_blades0006.png">
+                        <collision-poly>
+                            <point x="0.304688" y="0.304688" />
+                            <point x="0.5" y="0.226563" />
+                            <point x="0.695313" y="0.304688" />
+                            <point x="0.765625" y="0.5" />
+                            <point x="0.695313" y="0.695313" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.304688" y="0.695313" />
+                            <point x="0.226563" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\sprites&amp;such\Sprites\Space\Enemies\saucer_blades0007.png">
+                        <collision-poly>
+                            <point x="0.304688" y="0.304688" />
+                            <point x="0.5" y="0.226563" />
+                            <point x="0.695313" y="0.304688" />
+                            <point x="0.765625" y="0.5" />
+                            <point x="0.695313" y="0.695313" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.304688" y="0.695313" />
+                            <point x="0.226563" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\sprites&amp;such\Sprites\Space\Enemies\saucer_blades0008.png">
+                        <collision-poly>
+                            <point x="0.304688" y="0.304688" />
+                            <point x="0.5" y="0.226563" />
+                            <point x="0.695313" y="0.304688" />
+                            <point x="0.765625" y="0.5" />
+                            <point x="0.695313" y="0.695313" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.304688" y="0.695313" />
+                            <point x="0.226563" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\sprites&amp;such\Sprites\Space\Enemies\saucer_blades0009.png">
+                        <collision-poly>
+                            <point x="0.304688" y="0.304688" />
+                            <point x="0.5" y="0.226563" />
+                            <point x="0.695313" y="0.304688" />
+                            <point x="0.765625" y="0.5" />
+                            <point x="0.695313" y="0.695313" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.304688" y="0.695313" />
+                            <point x="0.226563" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\sprites&amp;such\Sprites\Space\Enemies\saucer_blades0010.png">
+                        <collision-poly>
+                            <point x="0.304688" y="0.304688" />
+                            <point x="0.5" y="0.226563" />
+                            <point x="0.695313" y="0.304688" />
+                            <point x="0.765625" y="0.5" />
+                            <point x="0.695313" y="0.695313" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.304688" y="0.695313" />
+                            <point x="0.226563" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\sprites&amp;such\Sprites\Space\Enemies\saucer_blades0011.png">
+                        <collision-poly>
+                            <point x="0.304688" y="0.304688" />
+                            <point x="0.5" y="0.226563" />
+                            <point x="0.695313" y="0.304688" />
+                            <point x="0.765625" y="0.5" />
+                            <point x="0.695313" y="0.695313" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.304688" y="0.695313" />
+                            <point x="0.226563" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\sprites&amp;such\Sprites\Space\Enemies\saucer_blades0012.png">
+                        <collision-poly>
+                            <point x="0.304688" y="0.304688" />
+                            <point x="0.5" y="0.226563" />
+                            <point x="0.695313" y="0.304688" />
+                            <point x="0.765625" y="0.5" />
+                            <point x="0.695313" y="0.695313" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.304688" y="0.695313" />
+                            <point x="0.226563" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\sprites&amp;such\Sprites\Space\Enemies\saucer_blades0013.png">
+                        <collision-poly>
+                            <point x="0.304688" y="0.304688" />
+                            <point x="0.5" y="0.226563" />
+                            <point x="0.695313" y="0.304688" />
+                            <point x="0.765625" y="0.5" />
+                            <point x="0.695313" y="0.695313" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.304688" y="0.695313" />
+                            <point x="0.226563" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\sprites&amp;such\Sprites\Space\Enemies\saucer_blades0014.png">
+                        <collision-poly>
+                            <point x="0.304688" y="0.304688" />
+                            <point x="0.5" y="0.226563" />
+                            <point x="0.695313" y="0.304688" />
+                            <point x="0.765625" y="0.5" />
+                            <point x="0.695313" y="0.695313" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.304688" y="0.695313" />
+                            <point x="0.226563" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\sprites&amp;such\Sprites\Space\Enemies\saucer_blades0015.png">
+                        <collision-poly>
+                            <point x="0.304688" y="0.304688" />
+                            <point x="0.5" y="0.226563" />
+                            <point x="0.695313" y="0.304688" />
+                            <point x="0.765625" y="0.5" />
+                            <point x="0.695313" y="0.695313" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.304688" y="0.695313" />
+                            <point x="0.226563" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Sprite" sid="9303392952027486">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6049506768188816" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="obstacle" sid="4532443473781962">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="7737899526056056">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2385359267261305" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\sprites&amp;such\Sprites\tesela.png">
+                        <collision-poly>
+                            <point x="0.34375" y="0.34375" />
+                            <point x="0.5" y="0.375" />
+                            <point x="0.640625" y="0.359375" />
+                            <point x="0.625" y="0.5" />
+                            <point x="0.65625" y="0.65625" />
+                            <point x="0.5" y="0.65625" />
+                            <point x="0.328125" y="0.671875" />
+                            <point x="0.34375" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+    </object-folder>
     <families />
     <layout-folder>
         <layout>Layout 1.xml</layout>
@@ -45,7 +362,10 @@
     <event-folder>
         <event-sheet>Event sheet 1.xml</event-sheet>
     </event-folder>
-    <global-instances />
+    <global-instances>
+        <global-instance type="Mouse" uid="16" />
+        <global-instance type="Keyboard" uid="17" />
+    </global-instances>
     <sounds-folder />
     <music-folder />
     <files-folder>
