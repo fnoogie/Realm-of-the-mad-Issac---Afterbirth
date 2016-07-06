@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>game</name>
+    <events>
+        <variable constant="0" name="enter_right" sid="311421854869081" static="0" type="number">0</variable>
+        <variable constant="0" name="enter_bottom" sid="2450040787015388" static="0" type="number">0</variable>
+        <variable constant="0" name="enter_top" sid="2727283130653588" static="0" type="number">0</variable>
+        <variable constant="0" name="enter_left" sid="2378709242457119" static="0" type="number">0</variable>
+        <variable constant="0" name="item" sid="350857590244817" static="0" type="number">0</variable>
+        <variable constant="0" name="damage" sid="2240535815929619" static="0" type="number">3</variable>
+        <variable constant="0" name="tearrate" sid="2612304178196662" static="0" type="number">-3</variable>
+        <event-group description="" sid="1654044014935011" title="bomb">
+            <sub-events>
+                <event-block sid="6599362532173294">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="2597477783786361" type="bomb">
+                            <param id="0" name="Object">collide_enemy</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="593027763743346" type="collide_enemy">
+                            <param id="0" name="Instance variable">hp</param>
+                            <param id="1" name="Value">(damage /2)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2762268614761421">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="7621189015422644" type="bomb">
+                            <param id="0" name="Object">shoot_enemy</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="5267159174045615" type="shoot_enemy">
+                            <param id="0" name="Instance variable">hp</param>
+                            <param id="1" name="Value">(damage/2)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5477612701061287">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="8642320646604131" type="Keyboard">
+                            <param id="0" name="Key">32 (Space)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="9764769736118493" type="Player">
+                            <param id="0" name="Object">bomb</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4506810041744091">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="9566179622210132" type="bomb" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Timer" id="0" name="Start timer" sid="7456002040798695" type="bomb">
+                            <param id="0" name="Duration">1.25</param>
+                            <param id="1" name="Type">0</param>
+                            <param id="2" name="Tag">&quot;explode&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7494225944363701">
+                    <conditions>
+                        <condition behavior="Timer" id="0" name="On timer" sid="3031220165694056" type="bomb">
+                            <param id="0" name="Tag">&quot;explode&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="5428251218433721" type="bomb" />
+                    </actions>
+                </event-block>
+                <event-block sid="315979819138446">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="4777202552376377" type="System" />
+                    </conditions>
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="5048798745778342" title="player">
+            <sub-events>
+                <event-group description="" sid="4755602122336814" title="death">
+                    <sub-events>
+                        <event-block sid="7677182818770942">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="9210781958665379" type="Player">
+                                    <param id="0" name="Instance variable">hp</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="8653883614342766" type="Player" />
+                                <action id="-15" name="Set visible" sid="588044196125282" type="ded">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="7440986844763146" type="ded">
+                                    <param id="0" name="X">0</param>
+                                    <param id="1" name="Y">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="7124520660363955" title="move+shoot">
+                    <sub-events>
+                        <event-block sid="3524604001178296">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="6039917619252547" type="Keyboard">
+                                    <param id="0" name="Key">87 (W)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="9309079063280507" type="Player">
+                                    <param id="0" name="Control">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6128292403327154">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="5221861664351315" type="Keyboard">
+                                    <param id="0" name="Key">65 (A)</param>
+                                </condition>
+                                <condition id="-1" name="Every tick" sid="1793123395532851" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-1" name="Set X" sid="5736948289802379" type="Player">
+                                    <param id="0" name="X">Player.X - 3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4759167861582138">
+                            <conditions>
+                                <condition id="3" name="On key released" sid="1823033059762064" type="Keyboard">
+                                    <param id="0" name="Key">65 (A)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-8" name="Set angle" sid="5737343691947734" type="Player">
+                                    <param id="0" name="Angle">0</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="9321363567452813" type="Player">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="452523823378856">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="5801380131766188" type="Keyboard">
+                                    <param id="0" name="Key">83 (S)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="1640407323761165" type="Player">
+                                    <param id="0" name="Control">3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4759580008784657">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="4299523392453619" type="Keyboard">
+                                    <param id="0" name="Key">68 (D)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="3304671876693359" type="Player">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6103239325056706">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="6575170522143772" type="Keyboard">
+                                    <param id="0" name="Key">73 (I)</param>
+                                </condition>
+                                <condition id="-6" name="Every X seconds" sid="2106707168089717" type="System">
+                                    <param id="0" name="Interval (seconds)">tearrate</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="3026785451383574" type="System">
+                                    <param id="0" name="Object to create">Bullet</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">Player.X</param>
+                                    <param id="3" name="Y">Player.Y</param>
+                                </action>
+                                <action id="-18" name="Rotate clockwise" sid="5081736416239843" type="Bullet">
+                                    <param id="0" name="Degrees">random(-2,2)</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="6704974109848906" type="Bullet">
+                                    <param id="0" name="Angle">270</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4878532828354596">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="1202105134234091" type="Keyboard">
+                                    <param id="0" name="Key">74 (J)</param>
+                                </condition>
+                                <condition id="-6" name="Every X seconds" sid="9727032290378841" type="System">
+                                    <param id="0" name="Interval (seconds)">tearrate</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="385794291248634" type="System">
+                                    <param id="0" name="Object to create">Bullet</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">Player.X</param>
+                                    <param id="3" name="Y">Player.Y</param>
+                                </action>
+                                <action id="-18" name="Rotate clockwise" sid="342684632178174" type="Bullet">
+                                    <param id="0" name="Degrees">random(-2,2)</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="1509326887550476" type="Bullet">
+                                    <param id="0" name="Angle">180</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7066781096183282">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="5276188821037828" type="Keyboard">
+                                    <param id="0" name="Key">75 (K)</param>
+                                </condition>
+                                <condition id="-6" name="Every X seconds" sid="655937030000692" type="System">
+                                    <param id="0" name="Interval (seconds)">tearrate</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="7309151991972334" type="System">
+                                    <param id="0" name="Object to create">Bullet</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">Player.X</param>
+                                    <param id="3" name="Y">Player.Y</param>
+                                </action>
+                                <action id="-18" name="Rotate clockwise" sid="6332993320563179" type="Bullet">
+                                    <param id="0" name="Degrees">random(-2,2)</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="6231671478536176" type="Bullet">
+                                    <param id="0" name="Angle">90</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1650609091982413">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="9200672586405828" type="Keyboard">
+                                    <param id="0" name="Key">76 (L)</param>
+                                </condition>
+                                <condition id="-6" name="Every X seconds" sid="1810574473308363" type="System">
+                                    <param id="0" name="Interval (seconds)">tearrate</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="2487179897566733" type="System">
+                                    <param id="0" name="Object to create">Bullet</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">Player.X</param>
+                                    <param id="3" name="Y">Player.Y</param>
+                                </action>
+                                <action id="-18" name="Rotate clockwise" sid="6287657992730907" type="Bullet">
+                                    <param id="0" name="Degrees">random(-2,2)</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="8377486115167189" type="Bullet">
+                                    <param id="0" name="Angle">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="1926197526884865" title="enemies">
+            <sub-events>
+                <event-block sid="9741817847999001">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="7871098032548775" type="collide_enemy">
+                            <param id="0" name="Instance variable">hp</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="439235946379113" type="collide_enemy" />
+                    </actions>
+                </event-block>
+                <event-block sid="2767639233486968">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="1008805971362027" type="shoot_enemy">
+                            <param id="0" name="Instance variable">hp</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="144918701230506" type="shoot_enemy" />
+                    </actions>
+                </event-block>
+                <event-group description="" sid="8835544687432862" title="bosses" />
+                <event-group description="" sid="1072005213046676" title="chasing">
+                    <sub-events>
+                        <event-block sid="2027701288676284">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="9255652269552341" type="Bullet">
+                                    <param id="0" name="Object">collide_enemy</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="3217865222906505" type="Bullet" />
+                                <action id="-12" name="Subtract from" sid="1671193930771315" type="collide_enemy">
+                                    <param id="0" name="Instance variable">hp</param>
+                                    <param id="1" name="Value">damage</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1130098643485079">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="2049936118281065" type="System">
+                                    <param id="0" name="Interval (seconds)">1.5</param>
+                                </condition>
+                                <condition behavior="LineOfSight" id="1" name="Has LOS to position" sid="8457527310926183" type="collide_enemy">
+                                    <param id="0" name="X">Player.X</param>
+                                    <param id="1" name="Y">Player.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Pathfinding" id="0" name="Find path" sid="3043297993399614" type="collide_enemy">
+                                    <param id="0" name="X">Player.X</param>
+                                    <param id="1" name="Y">Player.Y</param>
+                                </action>
+                                <action behavior="Pathfinding" id="1" name="Move along path" sid="9333155443328791" type="collide_enemy" />
+                                <action behavior="Pathfinding" id="14" name="Set speed" sid="3249829410299615" type="collide_enemy">
+                                    <param id="0" name="Speed">200</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="655947674723687">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="8910238656596875" type="collide_enemy">
+                                    <param id="0" name="Object">Player</param>
+                                </condition>
+                                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="8706074614483808" type="Player" />
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Subtract from" sid="8767607789148712" type="Player">
+                                    <param id="0" name="Instance variable">hp</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action behavior="Flash" id="0" name="Flash" sid="1424875754043685" type="Player">
+                                    <param id="0" name="&apos;On&apos; time">0.2</param>
+                                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                                    <param id="2" name="Duration">1.3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="65048202352645" title="shooting">
+                    <sub-events>
+                        <event-block sid="5729576650556594">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="3347920857617777" type="Bullet">
+                                    <param id="0" name="Object">shoot_enemy</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="842289618670825" type="Bullet" />
+                                <action id="-12" name="Subtract from" sid="8643093841724449" type="shoot_enemy">
+                                    <param id="0" name="Instance variable">hp</param>
+                                    <param id="1" name="Value">damage</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9778502065344253">
+                            <conditions>
+                                <condition id="-18" name="On created" sid="3292985703089293" type="shoot_enemy" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Turret" id="1" name="Add object to target" sid="192146053322824" type="shoot_enemy">
+                                    <param id="0" name="Target">Player</param>
+                                </action>
+                                <action behavior="Turret" id="7" name="Set rate of fire" sid="5410660456579457" type="shoot_enemy">
+                                    <param id="0" name="Rate of fire">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="2731668408164089">
+                            <conditions>
+                                <condition behavior="Turret" id="1" name="On shoot" sid="2428366530178176" type="shoot_enemy" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="9112336032798518" type="shoot_enemy">
+                                    <param id="0" name="Object">enemy_bullet</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4686569232391005">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="9703605489465712" type="enemy_bullet">
+                                    <param id="0" name="Object">obstacle</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="1769390214819877" type="enemy_bullet" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="3647699342333973">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="8171695927522276" type="enemy_bullet">
+                                    <param id="0" name="Object">Player</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="8988929077580382" type="enemy_bullet" />
+                                <action id="-12" name="Subtract from" sid="1998833387697671" type="Player">
+                                    <param id="0" name="Instance variable">hp</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="8890412044145766" title="item">
+            <sub-events>
+                <event-group description="all stats up" sid="1029618461161033" title="Magic_Mush">
+                    <sub-events>
+                        <event-block sid="8372954778020705">
+                            <conditions>
+                                <condition id="-41" name="Is between angles" sid="1380687726542863" type="System">
+                                    <param id="0" name="Angle">0</param>
+                                    <param id="1" name="First angle">0</param>
+                                    <param id="2" name="Second angle">45</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="8815732433496183" type="System">
+                                    <param id="0" name="Variable">damage</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-11" name="Subtract from" sid="9600856666561573" type="System">
+                                    <param id="0" name="Variable">tearrate</param>
+                                    <param id="1" name="Value">0.2</param>
+                                </action>
+                                <action id="-11" name="Add to" sid="8173884331779497" type="Player">
+                                    <param id="0" name="Instance variable">max_hp</param>
+                                    <param id="1" name="Value">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="damage up" sid="8725789817685387" title="Blacksmith&apos;s_Hammer">
+                    <sub-events>
+                        <event-block sid="2868290993072517">
+                            <conditions>
+                                <condition id="-41" name="Is between angles" sid="8530761119972665" type="System">
+                                    <param id="0" name="Angle">0</param>
+                                    <param id="1" name="First angle">0</param>
+                                    <param id="2" name="Second angle">45</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="5423572343999914" type="System">
+                                    <param id="0" name="Variable">damage</param>
+                                    <param id="1" name="Value">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="+2hp" sid="8989732449884376" title="Armor">
+                    <sub-events>
+                        <event-block sid="1036432772668698">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="6904908764550612" type="Player">
+                                    <param id="0" name="Object">obstacle</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Add to" sid="6362116248329271" type="Player">
+                                    <param id="0" name="Instance variable">max_hp</param>
+                                    <param id="1" name="Value">4</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="3281412384908551" type="Player">
+                                    <param id="0" name="Instance variable">hp</param>
+                                    <param id="1" name="Value">Player.max_hp</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="things that follow you" sid="9190742627927642" title="Follower">
+                    <sub-events>
+                        <event-group description="wait...i&apos;ve never seen this item" sid="4244756088567685" title="cat" />
+                        <event-group description="" sid="7140719151579332" title="demon_baby" />
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="8358374300520172" title="Green_Potion" />
+                <event-group description="random effect                                                     +health                                                    +damage                                                    +fire rate" sid="378726839552899" title="???">
+                    <sub-events>
+                        <variable constant="0" name="effect" sid="3774775075660711" static="0" type="number">0</variable>
+                        <event-block sid="3945786664743305">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="7527824900070023" type="Player">
+                                    <param id="0" name="Object">obstacle</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="1744749438812531" type="System">
+                                    <param id="0" name="Variable">effect</param>
+                                    <param id="1" name="Value">random(1,3)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7992143861529034">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="9060908406836803" type="System">
+                                    <param id="0" name="Variable">effect</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="7415288715435046" type="System">
+                                    <param id="0" name="Variable">damage</param>
+                                    <param id="1" name="Value">5</param>
+                                </action>
+                                <action id="-11" name="Subtract from" sid="1222661594587376" type="System">
+                                    <param id="0" name="Variable">tearrate</param>
+                                    <param id="1" name="Value">0.5</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="9024062057106223" type="Player">
+                                    <param id="0" name="Instance variable">hp</param>
+                                    <param id="1" name="Value">Player.max_hp</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1194996518436481">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="6319366494037074" type="System">
+                                    <param id="0" name="Variable">effect</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="5522409852381489" type="System">
+                                    <param id="0" name="Variable">tearrate</param>
+                                    <param id="1" name="Value">0.03</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="1962373103966057" type="Player">
+                                    <param id="0" name="Instance variable">hp</param>
+                                    <param id="1" name="Value">Player.max_hp</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="1422403704637721" type="System">
+                                    <param id="0" name="Variable">damage</param>
+                                    <param id="1" name="Value">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3093987263057581">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="709370613799795" type="System">
+                                    <param id="0" name="Variable">effect</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Add to" sid="8295456744467363" type="Player">
+                                    <param id="0" name="Instance variable">max_hp</param>
+                                    <param id="1" name="Value">4</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="226190777859957" type="Player">
+                                    <param id="0" name="Instance variable">hp</param>
+                                    <param id="1" name="Value">Player.max_hp</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="811134124603456" type="System">
+                                    <param id="0" name="Variable">damage</param>
+                                    <param id="1" name="Value">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
