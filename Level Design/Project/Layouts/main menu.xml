@@ -56,7 +56,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Button" uid="1060">
+                <instance type="Start" uid="1060">
                     <properties>
                         <type>Button</type>
                         <text>Start</text>
@@ -72,6 +72,30 @@
                     <world>
                         <x>284</x>
                         <y>155</y>
+                        <z>0</z>
+                        <width>72</width>
+                        <height>24</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                    </world>
+                </instance>
+                <instance type="credits2" uid="1086">
+                    <properties>
+                        <type>Button</type>
+                        <text>Credits</text>
+                        <tooltip></tooltip>
+                        <initial-visibility>Visible</initial-visibility>
+                        <enabled>Yes</enabled>
+                        <auto-font-size>Yes</auto-font-size>
+                        <id-optional></id-optional>
+                        <checked>No</checked>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>284</x>
+                        <y>200</y>
                         <z>0</z>
                         <width>72</width>
                         <height>24</height>

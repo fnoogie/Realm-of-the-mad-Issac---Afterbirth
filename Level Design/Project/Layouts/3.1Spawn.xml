@@ -660,18 +660,23 @@
                         </behavior-instance>
                         <behavior-instance type="Flash" />
                         <behavior-instance type="Timer" />
+                        <behavior-instance type="ScrollTo">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>88</x>
-                        <y>242</y>
+                        <x>370.645690918</x>
+                        <y>243.653015137</y>
                         <z>0</z>
-                        <width>73</width>
-                        <height>57</height>
+                        <width>30</width>
+                        <height>58</height>
                         <depth>0</depth>
-                        <hotspotX>0.520547926</hotspotX>
-                        <hotspotY>0.578947365</hotspotY>
+                        <hotspotX>0.899999976</hotspotX>
+                        <hotspotY>0.620689631</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -725,7 +730,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>620</x>
-                        <y>-76</y>
+                        <y>-203</y>
                         <z>0</z>
                         <width>57.142856598</width>
                         <height>50</height>

@@ -10,8 +10,10 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout active="1" order="1">1.1Spawn</layout>
-        <event-sheet order="0">game</event-sheet>
+        <layout order="0">Layout 1</layout>
+        <layout order="2">Final Boss</layout>
+        <layout active="1" order="3">1.6Boss</layout>
+        <event-sheet order="1">game</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -21,14 +23,15 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </properties>
     <families-expanded root="1" />
     <folders-expanded>
-        <folder expanded="1" path="object-folder/" />
+        <folder expanded="0" path="object-folder/" />
+        <folder expanded="1" path="object-folder/items/" />
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="1" path="layout-folder/Floor 1/" />
         <folder expanded="0" path="layout-folder/Floor 2/" />
-        <folder expanded="1" path="layout-folder/Floor 3/" />
-        <folder expanded="0" path="layout-folder/Floor 4/" />
-        <folder expanded="1" path="event-folder/" />
-        <folder expanded="1" path="file-folder/" />
+        <folder expanded="0" path="layout-folder/Floor 3/" />
+        <folder expanded="1" path="layout-folder/Floor 4/" />
+        <folder expanded="0" path="event-folder/" />
+        <folder expanded="0" path="file-folder/" />
         <folder expanded="1" path="sound-folder/" />
         <folder expanded="1" path="music-folder/" />
         <folder expanded="0" path="file-folder/Icons/" />
@@ -65,5 +68,23 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/Sprite8/" />
         <folder expanded="1" path="animation-folder/bossdoor2/" />
         <folder expanded="1" path="animation-folder/SecretroomDoor/" />
+        <folder expanded="1" path="animation-folder/magic_mush/" />
+        <folder expanded="1" path="animation-folder/hammer/" />
+        <folder expanded="1" path="animation-folder/mead/" />
+        <folder expanded="1" path="animation-folder/follower/" />
+        <folder expanded="1" path="animation-folder/potion/" />
+        <folder expanded="1" path="animation-folder/heats_full1/" />
+        <folder expanded="1" path="animation-folder/hearts_full2/" />
+        <folder expanded="1" path="animation-folder/heats_full2/" />
+        <folder expanded="1" path="animation-folder/heats_full3/" />
+        <folder expanded="1" path="animation-folder/heats_full4/" />
+        <folder expanded="1" path="animation-folder/heats_full5/" />
+        <folder expanded="1" path="animation-folder/heats_full6/" />
+        <folder expanded="1" path="animation-folder/heats_full7/" />
+        <folder expanded="1" path="animation-folder/Sprite9/" />
+        <folder expanded="1" path="animation-folder/shoot_enemy2/" />
+        <folder expanded="1" path="animation-folder/shoot_enemy3/" />
+        <folder expanded="1" path="animation-folder/Sprite10/" />
+        <folder expanded="1" path="animation-folder/final_boss_pt1/" />
     </folders-expanded>
 </c2uistate>
