@@ -1370,6 +1370,7 @@
                                     <param id="0" name="Variable">tearrate</param>
                                     <param id="1" name="Value">tearrate * 0.75</param>
                                 </action>
+                                <action id="-9" name="Destroy" sid="7487157668437368" type="potion" />
                             </actions>
                         </event-block>
                     </sub-events>

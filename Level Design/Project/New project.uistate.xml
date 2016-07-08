@@ -12,7 +12,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     <open-tabs>
         <layout order="0">Layout 1</layout>
         <layout order="2">Final Boss</layout>
-        <layout active="1" order="3">1.6Boss</layout>
+        <layout order="3">1.6Boss</layout>
+        <layout order="4">1.1Spawn</layout>
+        <layout active="1" order="5">1.3Loot</layout>
         <event-sheet order="1">game</event-sheet>
     </open-tabs>
     <properties>
