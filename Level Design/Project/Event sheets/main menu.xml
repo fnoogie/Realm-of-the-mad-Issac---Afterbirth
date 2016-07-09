@@ -5,31 +5,57 @@
     <events>
         <event-block sid="5866163813802537">
             <conditions>
-                <condition id="0" name="On clicked" sid="541211025195525" type="Start" />
+                <condition id="6" name="On object clicked" sid="4817465979230657" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">GameStart</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-2" name="Go to layout" sid="576018656210605" type="System">
-                    <param id="0" name="Layout">1.1Spawn</param>
+                    <param id="0" name="Layout">Layout 1</param>
                 </action>
             </actions>
         </event-block>
         <event-block sid="1102298723644325">
             <conditions>
-                <condition id="0" name="On clicked" sid="3949819143854247" type="credits" />
+                <condition id="6" name="On object clicked" sid="36595626802212" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">BACKSTORY</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-2" name="Go to layout" sid="8797216087642012" type="System">
-                    <param id="0" name="Layout">credits</param>
+                    <param id="0" name="Layout">sotry</param>
                 </action>
             </actions>
         </event-block>
         <event-block sid="2264385831664954">
             <conditions>
-                <condition id="0" name="On clicked" sid="5250811521323429" type="back" />
+                <condition id="6" name="On object clicked" sid="8136816443318185" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">CREDIT</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-2" name="Go to layout" sid="6000853667104771" type="System">
-                    <param id="0" name="Layout">main menu</param>
+                    <param id="0" name="Layout">credits</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6382221157117196">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="2373383854686318" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">back_text</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-25" name="Go to layout (by name)" sid="8466438461570143" type="System">
+                    <param id="0" name="Layout">&quot;main menu&quot;</param>
                 </action>
             </actions>
         </event-block>

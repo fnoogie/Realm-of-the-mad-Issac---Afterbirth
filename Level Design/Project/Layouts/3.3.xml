@@ -635,11 +635,6 @@
                                 <use-collision-cells>Yes</use-collision-cells>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="BoundToLayout">
-                            <properties>
-                                <bound-by>Edge</bound-by>
-                            </properties>
-                        </behavior-instance>
                         <behavior-instance type="8Direction">
                             <properties>
                                 <max-speed>200</max-speed>
@@ -700,11 +695,6 @@
                                 <use-collision-cells>Yes</use-collision-cells>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="BoundToLayout">
-                            <properties>
-                                <bound-by>Edge</bound-by>
-                            </properties>
-                        </behavior-instance>
                         <behavior-instance type="8Direction">
                             <properties>
                                 <max-speed>200</max-speed>
@@ -763,11 +753,6 @@
                                 <range>1000</range>
                                 <cone-of-view>360</cone-of-view>
                                 <use-collision-cells>Yes</use-collision-cells>
-                            </properties>
-                        </behavior-instance>
-                        <behavior-instance type="BoundToLayout">
-                            <properties>
-                                <bound-by>Edge</bound-by>
                             </properties>
                         </behavior-instance>
                         <behavior-instance type="8Direction">
@@ -870,8 +855,8 @@
                         <width>30</width>
                         <height>58</height>
                         <depth>0</depth>
-                        <hotspotX>0.899999976</hotspotX>
-                        <hotspotY>0.620689631</hotspotY>
+                        <hotspotX>0.600000024</hotspotX>
+                        <hotspotY>0.482758611</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -954,10 +939,10 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64.975532532</x>
-                        <y>353.683959961</y>
+                        <y>357.683959961</y>
                         <z>0</z>
                         <width>50</width>
-                        <height>167</height>
+                        <height>159</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -983,10 +968,10 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64.972930908</x>
-                        <y>103.76512146</y>
+                        <y>96.975128174</y>
                         <z>0</z>
                         <width>50</width>
-                        <height>212.579986572</height>
+                        <height>199</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -1011,10 +996,10 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>534.809204102</x>
+                        <x>540.309204102</x>
                         <y>414.863891602</y>
                         <z>0</z>
-                        <width>289</width>
+                        <width>278</width>
                         <height>50</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
@@ -1185,10 +1170,10 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>186.105316162</x>
+                        <x>181.605316162</x>
                         <y>414.84274292</y>
                         <z>0</z>
-                        <width>288</width>
+                        <width>279</width>
                         <height>50</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>

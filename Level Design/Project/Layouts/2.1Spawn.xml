@@ -597,8 +597,8 @@
                         <width>30</width>
                         <height>58</height>
                         <depth>0</depth>
-                        <hotspotX>0.899999976</hotspotX>
-                        <hotspotY>0.620689631</hotspotY>
+                        <hotspotX>0.600000024</hotspotX>
+                        <hotspotY>0.482758611</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -778,10 +778,10 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>555.657470703</x>
+                        <x>562.786010742</x>
                         <y>415.355316162</y>
                         <z>0</z>
-                        <width>327.257141113</width>
+                        <width>313</width>
                         <height>50</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
@@ -837,10 +837,10 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>655.064453125</x>
-                        <y>43.466339111</y>
+                        <y>37.563323975</y>
                         <z>0</z>
                         <width>50</width>
-                        <height>313.806030273</height>
+                        <height>302</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -924,10 +924,10 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>654.79083252</x>
-                        <y>332.107330322</y>
+                        <y>341.532806396</y>
                         <z>0</z>
                         <width>50</width>
-                        <height>135.85093689</height>
+                        <height>117</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -1068,10 +1068,10 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>46.466705322</x>
+                        <x>40.844146729</x>
                         <y>415.066925049</y>
                         <z>0</z>
-                        <width>555.245117188</width>
+                        <width>544</width>
                         <height>50</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>

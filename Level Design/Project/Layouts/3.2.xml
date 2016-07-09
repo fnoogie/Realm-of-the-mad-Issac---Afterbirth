@@ -635,11 +635,6 @@
                                 <use-collision-cells>Yes</use-collision-cells>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="BoundToLayout">
-                            <properties>
-                                <bound-by>Edge</bound-by>
-                            </properties>
-                        </behavior-instance>
                         <behavior-instance type="8Direction">
                             <properties>
                                 <max-speed>200</max-speed>
@@ -780,8 +775,8 @@
                         <width>30</width>
                         <height>58</height>
                         <depth>0</depth>
-                        <hotspotX>0.899999976</hotspotX>
-                        <hotspotY>0.620689631</hotspotY>
+                        <hotspotX>0.600000024</hotspotX>
+                        <hotspotY>0.482758611</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -864,10 +859,10 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64.975532532</x>
-                        <y>353.683959961</y>
+                        <y>356.183959961</y>
                         <z>0</z>
                         <width>50</width>
-                        <height>167</height>
+                        <height>162</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -893,10 +888,10 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64.972930908</x>
-                        <y>103.76512146</y>
+                        <y>97.975128174</y>
                         <z>0</z>
                         <width>50</width>
-                        <height>212.579986572</height>
+                        <height>201</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
